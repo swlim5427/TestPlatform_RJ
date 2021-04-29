@@ -1,0 +1,94 @@
+
+.frame-table-div{
+    width: 95%;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.div-list-button{
+    display: flex;
+    width: 95%;
+    margin-top: 30px;
+    margin-left: 50px;
+    justify-content: flex-start;
+}
+
+
+.layer-main{
+    display: flex;
+    /*width: 420px;*/
+    width: 500px;
+    margin:30px;
+    font-size: 16px;
+    color: #333;
+    flex-direction: column;
+}
+
+.layer-main .layer-item{
+    display: flex;
+    margin-top: 10px;
+    flex-direction: row;
+}
+
+.layer-main .layer-item .item-left{
+    display: flex;
+    width: 20%;
+    margin-right: 10px;
+    justify-content: flex-end;
+    align-items: center;
+}
+.layer-main .layer-item .item-right{
+    display: flex;
+    width: 80%;
+}
+.layer-main .layer-button-frame{
+    display: flex;
+    justify-content:space-between;
+    /*width: 100px;*/
+    margin-top: 20px;
+    align-items: center;
+}
+.layer-main .layer-button-frame .button-select{
+    margin-left: 10px;
+}
+.layer-main .layer-button-frame .layui-upload-choose{
+    margin-right: 300px;
+}
+.layer-main .layer-button-frame .layui-upload-wav{
+    margin-right: 100px;
+}
+
+.self-table{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.button-testRun{
+    margin-left: 200px;
+    margin-top: 25px;
+}
+
+.select-tab-view{
+    display: flex;
+    justify-content:space-between;
+}
+.create-test{
+    display: flex;
+    flex-direction: column;
+}
+.create-test .top{
+    display: flex;
+}
+.create-test-button{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+    margin-right: 10px;
+
+}
+.report-list-option{
+    display: flex;
+    align-items: flex-end;
+    margin-top: 10px;
+}

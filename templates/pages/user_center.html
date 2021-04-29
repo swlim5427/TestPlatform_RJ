@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!--<link rel="stylesheet" href="/static/layui/css/layui.css">-->
+    <!--<script src="/static/layui/jquery.min.js"></script>-->
+    <style type="text/css">
+        .aa{margin-top: 7%; font-size: 14px;}
+        .bb {margin-top: 10%;}
+        .aa .cc{
+            float: right;
+            margin-top: -11px;
+            position: absolute;
+            right: 30px;
+            top: 50%;
+        }
+        .aa .account{
+            border: 1px solid #10ad15;
+            color:#10ad15;
+            border-radius: 4px;
+            padding: 20px;
+            position: relative;
+        }
+        .txt{width: 410px; margin:30px; font-size: 16px; color: #333;}
+        .layui-btn {
+            display: inline-block;
+            height: 38px;
+            line-height: 38px;
+            padding: 0 18px;
+            background-color: #ffa751;
+            color: #fff;
+            text-align: center;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 16px;
+            vertical-align: middle;
+            margin-left: 25px;
+
+        }
+        input[type="text"]{
+            word-wrap: break-word;width: 240px;height: 38px;
+            border-radius: 4px; padding: 0 5px;border: 1px solid #ddd;
+            display:inline-block; margin:0px 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<!--输入提现金额浮层-->
+<div>
+    <div class="txt">
+        <span class="bb">输入提现金额</span>
+        <input id="money_request" type="text" placeholder="最多可提现0.00元" maxlength="15">
+        <div class="aa">
+            <p>提现到建设银行</p>
+            <div class="account">我的建设银行（546513212315451）<i class="cc">✔</i></div>
+        </div>
+    </div>
+
+</div>
+<div class="layui-btn" id="layui-btnn">确认提现</div>
+
+</body>
+<script src="/static/layui/layui.js"></script>
+<script type="text/javascript">
+    $("#layui-btnn").on('click',function(){
+        layui.use('layer', function() {
+            var layer = layui.layer;//引入layer组件
+            var money_request=$('#money_request').val();//获取用户输入的提现金额'
+
+            //判断用户输入的提现金额是否为空
+            if(money_request==''){
+                layer.msg('请输入提现金额',{icon: 2});
+                return false;
+            }
+
+            //判断用户输入的提现金额是否大于等于500
+            if(money_request<500){
+                layer.msg('提现金额需要大于等于500哦', {
+                    // time: 20000, //20s后自动关闭
+                    btn: ['明白了', '知道了']
+                });
+                return false;
+            }
+
+            //判断用户的提现金额是否大于拥有的金额
+            //从后台取出该用户拥有多少余额
+            //这里假设是950
+            if(money_request>950){
+                layer.msg('提现金额不能大于您的余额哦',{icon: 5});
+                return false;
+            }
+
+        });
+
+    });
+
+</script>
+</html>

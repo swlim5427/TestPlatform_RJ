@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/frame.css">
+</head>
+
+<body>
+    <div class="layui-tab layui-tab-brief" lay-filter="createTestTask">
+        <ul class="layui-tab-title">
+            <li class="layui-this" >接口测试</li>
+            <li>性能测试</li>
+            <li>UI测试</li>
+        </ul>
+        <div class="layui-tab-content">
+            <!--asr识别率测试-->
+            <div class="layui-tab-item layui-show">
+                <form class="layui-form" action="" style="margin-top: 15px">
+                    <div class="asrDiv">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">测试用例</label>
+                            <div class="layui-input-inline" style="width: 193px" >
+                                <select name="testCaseFile" id="testCaseFile"  lay-verify="testCaseFile" lay-search="">
+                                    <option value="">选择或搜索</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="layui-inline">
+                            <label class="layui-form-label">任务名称</label>
+                            <div class="layui-input-inline">
+                                <input type="taskName" name="taskName" lay-verify="checkTaskName" size="25" class="layui-input" placeholder="任务名称">
+                            </div>
+                        </div>
+
+                        <div class="layui-inline" style="margin-top: 15px">
+                            <label class="layui-form-label">API IP</label>
+                            <div class="layui-input-inline">
+                                <input type="ip" name="ip" lay-verify="checkIp" size="25" class="layui-input" placeholder="API IP">
+                            </div>
+                        </div>
+
+                        <div class="layui-inline" style="margin-top: 15px">
+                            <label class="layui-form-label">API PORT</label>
+                            <div class="layui-input-inline">
+                                <input type="port" name="port" lay-verify="checkPort" size="25" class="layui-input" placeholder="API 端口">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="layui-inline create-test-button">
+                        <button type="button" class="layui-btn" id="testRun" name="testRun" lay-submit lay-filter="testRun">开始测试</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div class="layui-tab-item">性能测试</div>
+            <div class="layui-tab-item">UI测试</div>
+        </div>
+    </div>
+
+</body>
+
+<script src="../../../js/public_js.js"></script>
+<script src="../../../js/jquery-3.3.1.min.js"></script>
+<script src="../../../layui/layui.js"></script>
+
+<script type="text/javascript" src="js/create_task.js"></script>
+
+</html>

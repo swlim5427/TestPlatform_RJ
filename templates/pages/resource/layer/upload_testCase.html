@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/frame.css">
+
+    <style type="text/css">
+        input[type="text"]{
+            word-wrap: break-word;width: 240px;height: 38px;
+            border-radius: 4px; padding: 0 5px;border: 1px solid #ddd;
+            display:inline-block; margin:0px 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="layer-main" >
+    <form class="layui-form" action="">
+        <div class="layer-item">
+            <text class="item-left">文件名</text>
+            <input type="text" class="layui-input" name="caseName" lay-verify="checkCaseName" placeholder="输入测试用例名称" id="caseName">
+        </div>
+
+        <div class="layer-item">
+            <label class="layui-form-label">用例类型</label>
+            <div class="layui-input-inline" style="width: 245px" >
+                <select name="caseType" id="caseType">
+                    <option value="1001">接口测试用例</option>
+                    <option value="1002">UI测试用例</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layer-button-frame">
+            <button type="button" class="layui-btn layui-btn-normal button-select" id="fileSelect" lay-verify="selectCaseName">选择文件</button>
+        </div>
+        <div class="layer-button-frame">
+            <button type="button" class="layui-btn button-select" id="uploadTestCase" name="uploadTestCase" lay-submit lay-filter="uploadTestCase">开始上传</button>
+        </div>
+    </form>
+</div>
+
+
+</body>
+<script src="../../../js/public_js.js"></script>
+<script src="../../../js/jquery-3.3.1.min.js"></script>
+<script src="../../../layui/layui.js"></script>
+
+<script type="text/javascript" src="js/upload_testCase.js"></script>
+
+</html>

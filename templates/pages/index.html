@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Test</title>
+  <link rel="stylesheet" href="/templates/css/frame.css">
+  <link rel="stylesheet" href="/templates/layui/css/layui.css">
+
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo">MobvoiTest</div>
+  </div>
+
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+        <li class="layui-nav-item layui-nav-itemed">
+          <a class="" href="javascript:;">资源管理</a>
+          <dl id="testApps" class="layui-nav-child">
+
+            <!--<dd><a data-id="context" href="javascript:;">context</a></dd>-->
+            <dd><a data-id="testCase" href="javascript:;">测试用例</a></dd>
+            <!--<dd><a data-id="info" href="javascript:;">列表三</a></dd>-->
+          </dl>
+        </li>
+        <li class="layui-nav-item layui-nav-itemed">
+          <a href="javascript:;">任务管理</a>
+          <dl id="taskManager" class="layui-nav-child">
+            <dd><a class="current" data-id="taskList" href="javascript:;">测试任务</a></dd>
+            <!--<dd><a href="javascript:;">测试报告</a></dd>-->
+          </dl>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="layui-body">
+    <!--<div style="padding: 15px;">内容主体区域</div>-->
+    <div id="content"></div>
+  </div>
+
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © swlim
+  </div>
+</div>
+
+<script src="/templates/layui/layui.js"></script>
+<script src="/templates/js/jquery-3.3.1.min.js"></script>
+
+<script>
+//JavaScript代码区域
+  layui.use('element', function(){
+    var element = layui.element;
+
+  });
+
+
+  $(function() {
+    $("#testApps").on("click", "a", function() {
+      var sId = $(this).data("id"); //获取data-id的值
+      window.location.hash = sId; //设置锚点
+      loadInner(sId);
+    });
+
+    $("#taskManager").on("click", "a", function() {
+      var sId= $(this).data("id"); //获取data-id的值
+      window.location.hash = sId; //设置锚点
+      loadInner(sId);
+    });
+
+
+    // $("#runTest1").on("click", "a", function() {
+    //   var sId = $(this).data("id"); //获取data-id的值
+    //   window.location.hash = sId; //设置锚点
+    //   loadInner(sId);
+    // });
+
+    function loadInner(sId) {
+      var sId = window.location.hash;
+      var pathn, i;
+      switch(sId) {
+
+        case "#asrWavList":
+          pathn = "/templates/pages/resource/wav_list_table.html";
+          i = 0;
+          break;
+        case "#context":
+          pathn = "/templates/pages/resource/context_list.html";
+          i = 1;
+          break;
+        case "#testCase":
+          pathn = "/templates/pages/resource/test_case_list.html";
+          i = 1;
+          break;
+        case "#taskList":
+          pathn = "/templates/pages/task/task_list.html";
+          i = 1;
+          break;
+        default:
+          pathn = "/templates/pages/task/task_list.html";
+          i = 0;
+          break;
+      }
+      $("#content").load(pathn); //加载相对应的内容
+      console.log(pathn);
+      // $("#testApps a").eq(i).addClass("current").siblings().removeClass("current"); //当前列表高亮
+    }
+    var sId = window.location.hash;
+    console.log(sId);
+
+    loadInner(sId);
+  });
+
+
+</script>
+</body>
+</html>

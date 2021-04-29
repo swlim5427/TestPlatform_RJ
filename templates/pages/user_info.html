@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style type="text/css">
+        input[type="text"]{
+            word-wrap: break-word;width: 240px;height: 38px;
+            border-radius: 4px; padding: 0 5px;border: 1px solid #ddd;
+            display:inline-block; margin:0px 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="layer-main" >
+    <div class="layer-item">
+        <text class="item-left">文件名</text>
+        <input type="text" class="layui-input" name="aaa" placeholder="输入音频列表名称（可不填）">
+    </div>
+    <div class="layer-item">
+        <text class="item-left">音频采样率</text>
+        <input type="text" placeholder="输入音频采样率（8000 16000）">
+    </div>
+    <div class="layer-button-frame">
+        <button type="button" class="layui-btn layui-btn-normal button-select" id="test8">选择文件</button>
+    </div>
+    <div class="layer-button-frame">
+        <button type="button" class="layui-btn button-select" id="test9">开始上传</button>
+    </div>
+</div>
+
+
+</body>
+<!--<script src="/static/layui/layui.js"></script>-->
+<script type="text/javascript">
+
+    layui.use('upload', function(){
+
+        var upload = layui.upload
+
+
+        upload.render({
+            elem: '#test8'
+            ,url: '/upload/'
+            ,auto: false
+            //,multiple: true
+            ,bindAction: '#test9'
+            ,accept: 'file'
+            ,before: function () {
+                var kk = layui.jquery('input[name= aaa]').val()
+                if (kk===""){
+                    console.log("12")
+                    return false
+                }
+                console.log(kk);
+            }
+            ,done: function(res){
+                // console.log(res)
+            }
+
+        });
+    });
+
+</script>
+</html>

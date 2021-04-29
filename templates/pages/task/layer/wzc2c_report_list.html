@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../../layui/css/layui.css">
+    <link rel="stylesheet" href="../../../css/frame.css">
+</head>
+
+<script src="../../../js/public_js.js"></script>
+<script src="../../../js/jquery-3.3.1.min.js"></script>
+<script src="../../../layui/layui.js"></script>
+<!--<script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>-->
+
+<script type="text/html" id="result">
+
+    {{#  if(d.report =='1'){ }}
+    <text style="color: green">正确</text>
+    {{#  } else if(d.report =='0') { }}
+    <text style="color: red">错误</text>
+
+    {{#  } else if(d.report =='2') { }}
+    <text style="color: #007DDB">服务连接异常</text>
+    <!--{{#  } else  { }}-->
+    {{#  } }}
+
+</script>
+
+<!--<script type="text/javascript">-->
+<!--var aa  = this.testId-->
+<!--document.getElementById("testDetails").value= aa-->
+<!--</script>-->
+
+<body>
+<div class="frame-table-div" style="margin-top: 0px">
+    <text id="testDetails"></text>
+    <table class="layui-hide" id="reportList" lay-filter="reportList"></table>
+</div>
+</body>
+<script type="text/javascript" src="js/wzc2c_report_list.js"></script>
+</html>
